@@ -1,0 +1,10 @@
+PyQt6
+langchain
+langchain-community
+langchain-huggingface
+chromadb
+docx2txt
+pypdf
+requests
+sentence-transformers
+psutil

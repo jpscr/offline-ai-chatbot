@@ -1,0 +1,257 @@
+/* ============================================================
+   Offline Local AI & System Monitor Assistant -- Application Style
+
+   Design direction: instrument-panel dark theme rather than a generic
+   chat-app skin. The subject is a diagnostics tool as much as a chat
+   assistant, so the palette borrows from lab/oscilloscope instrumentation
+   -- a deep charcoal body, a muted teal "signal" accent for live data and
+   the "local docs" tag, and amber/red-orange status colors that read as
+   technical rather than decorative.
+   ============================================================ */
+
+QMainWindow, QWidget {
+    background-color: #0F1417;
+    color: #E8EDF0;
+    font-family: -apple-system, "Helvetica Neue", "Segoe UI", sans-serif;
+    font-size: 13px;
+}
+
+/* ---------- Splitter ---------- */
+QSplitter#mainSplitter::handle {
+    background-color: #2A363C;
+}
+
+/* ---------- Chat panel ---------- */
+QWidget#chatPanel {
+    background-color: #0F1417;
+}
+
+QLabel#chatTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #E8EDF0;
+}
+
+QLabel#statusLabel {
+    color: #8FA0A8;
+    font-size: 12px;
+}
+
+QLabel#statusLabelReady {
+    color: #4FD8C4;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+QScrollArea#messagesArea {
+    background-color: #12181B;
+    border: 1px solid #2A363C;
+    border-radius: 10px;
+}
+
+QScrollArea#messagesArea QWidget {
+    background-color: transparent;
+}
+
+/* ---------- Chat bubbles ---------- */
+QFrame#chatBubbleUser {
+    background-color: #1F3A38;
+    border: 1px solid #34625C;
+    border-radius: 12px;
+}
+
+QFrame#chatBubbleAssistant {
+    background-color: #1C262C;
+    border: 1px solid #2A363C;
+    border-radius: 12px;
+}
+
+QFrame#chatBubbleUser QLabel, QFrame#chatBubbleAssistant QLabel {
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+}
+
+QLabel#sourceTagLocal {
+    color: #4FD8C4;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+QLabel#sourceTagWorld {
+    color: #8FA0A8;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+QLabel#systemMessage {
+    color: #8FA0A8;
+    font-style: italic;
+    font-size: 12px;
+    padding: 4px;
+}
+
+/* ---------- Input row ---------- */
+QLineEdit#chatInput {
+    background-color: #171F24;
+    border: 1px solid #2A363C;
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: #E8EDF0;
+    font-size: 13px;
+}
+
+QLineEdit#chatInput:focus {
+    border: 1px solid #4FD8C4;
+}
+
+QLineEdit#chatInput:disabled {
+    color: #5A6970;
+}
+
+QPushButton#primaryButton {
+    background-color: #4FD8C4;
+    color: #0F1417;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+QPushButton#primaryButton:hover {
+    background-color: #6BE8D6;
+}
+
+QPushButton#primaryButton:disabled {
+    background-color: #2A363C;
+    color: #5A6970;
+}
+
+QPushButton#secondaryButton {
+    background-color: transparent;
+    color: #8FA0A8;
+    border: 1px solid #2A363C;
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+QPushButton#secondaryButton:hover {
+    border: 1px solid #4FD8C4;
+    color: #E8EDF0;
+}
+
+/* ---------- Telemetry panel ---------- */
+QWidget#telemetryPanel {
+    background-color: #12181B;
+    border-left: 1px solid #2A363C;
+}
+
+QLabel#telemetryTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #E8EDF0;
+}
+
+QFrame#telemetryCard {
+    background-color: #1C262C;
+    border: 1px solid #2A363C;
+    border-radius: 10px;
+    padding: 14px;
+}
+
+QLabel#cardHeader {
+    font-size: 11px;
+    font-weight: 700;
+    color: #8FA0A8;
+}
+
+QLabel#cardValue {
+    font-size: 12px;
+    color: #E8EDF0;
+    font-family: "SF Mono", "Consolas", "Menlo", monospace;
+}
+
+/* ---------- Metric bars ---------- */
+QLabel#metricLabel {
+    font-size: 12px;
+    color: #E8EDF0;
+}
+
+QLabel#metricValue {
+    font-size: 12px;
+    color: #8FA0A8;
+    font-family: "SF Mono", "Consolas", "Menlo", monospace;
+}
+
+QProgressBar#metricBar {
+    background-color: #0F1417;
+    border: none;
+    border-radius: 4px;
+    max-height: 8px;
+    min-height: 8px;
+}
+
+QProgressBar#metricBar::chunk {
+    border-radius: 4px;
+    background-color: #4FD8C4;
+}
+
+QProgressBar#metricBar[level="warning"]::chunk {
+    background-color: #F2B84B;
+}
+
+QProgressBar#metricBar[level="critical"]::chunk {
+    background-color: #E8654F;
+}
+
+/* ---------- Modules table ---------- */
+QTableWidget#modulesTable {
+    background-color: transparent;
+    border: none;
+    gridline-color: #2A363C;
+    color: #E8EDF0;
+    font-family: "SF Mono", "Consolas", "Menlo", monospace;
+    font-size: 11px;
+}
+
+QTableWidget#modulesTable QHeaderView::section {
+    background-color: transparent;
+    color: #8FA0A8;
+    border: none;
+    border-bottom: 1px solid #2A363C;
+    padding: 4px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+QTableWidget#modulesTable::item {
+    padding: 4px;
+    border-bottom: 1px solid #1C262C;
+}
+
+/* ---------- Status dot ---------- */
+QLabel#statusDotOnline {
+    color: #4FD8C4;
+    font-size: 14px;
+}
+
+QLabel#statusDotOffline {
+    color: #E8654F;
+    font-size: 14px;
+}
+
+/* ---------- Scrollbar ---------- */
+QScrollBar:vertical {
+    background: transparent;
+    width: 8px;
+}
+
+QScrollBar::handle:vertical {
+    background: #2A363C;
+    border-radius: 4px;
+    min-height: 24px;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}

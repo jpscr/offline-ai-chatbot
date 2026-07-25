@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.egg-info/
+
+# This project's generated data -- rebuilt locally by running the app,
+# should never be committed
+chroma_db/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Environment / secrets (none currently used, but good default)
+.env
